@@ -9,16 +9,13 @@
 <body>
     <?php
     session_start();
+
+    if(isset($_SESSION['view'])){
+        $_SESSION['view'] = $_SESSION['view'] +1;}
+    else {$_SESSION['view'] = 1;} 
+    echo "Deze pagina heb je al " . $_SESSION['view'] . " keer bekeken <br>";
+    echo "in totaal heb je deze pagina al: " . $_SESSION['view'] . " keer bekeken."
     
-
-    if(isset['']){
-
-    }
-
-
-    echo "Deze pagina heb je al:" . $n . "keer bekenen" . "<br>";
-    echo "voordat je de internet browser hebt afgesloten";
- 
     ?>
 </body>
 </html>
