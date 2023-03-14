@@ -8,21 +8,20 @@
 </head>
 <body>
     <?php
-    
-    session_start(); 
-if(isset($_SESSION['views']))    
-$_SESSION['views'] = $_SESSION['views']+1;
-else{$_SESSION['views']=1;  
-echo"Deze pagina heb je al: ".$_SESSION['views'] . " bekeken voordat je de 
-internet browser hebt afgesloten <br><br>";
+    session_start();
 
-if(isset($_COOKIE['visited'])) {     
-$views = $_COOKIE['visited'];    
-$views++;       
-setcookie ("visited", $views ,time() + 3600);            
-echo "je bent: " . $_COOKIE ['visited'] . " hier geweest"; } 
-	else {     setcookie ("visited", 1, time() + 3600);    
-echo "je bent: " . 1 . " hier geweest";     }
+    if(isset($_SESSION['view'])){
+        setcookie('view', 1 , time() +3600);
+    }
+
+    echo $_COOKIE['view'];
+    
+
+    if(isset($_SESSION['view'])){
+        $_SESSION['view'] +=1;} else {$_SESSION['view'] = 1;};
+ 
+    echo $_SESSION['view'];
+
     ?>
 </body>
 </html>
