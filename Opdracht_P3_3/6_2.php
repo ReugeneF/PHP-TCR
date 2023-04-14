@@ -7,20 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
+<?php
     session_start();
+        //Mijn php codes
+         $_SESSION['visit'] += 1;
+        if(isset($_SESSION['visit'])){
+            echo 'Deze pagina heb je al: ' .  $_SESSION['visit'] . ' keer bekeken voordat de internet browser is afgesloten.' . "<br>";
+        }
 
-    if(isset($_SESSION['view'])){
-        setcookie('view', 1 , time() +3600);
-    }
-
-    echo $_COOKIE['view'];
-    
-
-    if(isset($_SESSION['view'])){
-        $_SESSION['view'] +=1;} else {$_SESSION['view'] = 1;};
- 
-    echo $_SESSION['view'];
+        $counter = 0;
+        if(isset($_COOKIE['visit'])){
+            $counter = $_COOKIE['visit'];
+            echo 'In totaal he je deze pagina al: ' . $counter++ . ' bekeken';
+        } 
+        setcookie('visit',$counter, time() + 3600);
 
     ?>
 </body>
